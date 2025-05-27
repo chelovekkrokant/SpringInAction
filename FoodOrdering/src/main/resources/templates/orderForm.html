@@ -20,24 +20,27 @@
     <label for="deliveryName">Name: </label>
     <input type="text" th:field="*{deliveryName}"/>
     <br/>
-    <label for="deliveryStreet">Street address: </label>
+    <label for="deliveryStreet">Street: </label>
     <input type="text" th:field="*{deliveryStreet}"/>
     <br/>
     <label for="deliveryCity">City: </label>
     <input type="text" th:field="*{deliveryCity}"/>
     <br/>
-    <label for="deliveryHouse">State: </label>
+    <label for="deliveryHouse">House: </label>
     <input type="text" th:field="*{deliveryHouse}"/>
     <br/>
-    <label for="clientExpiration">Zip code: </label>
-    <input type="text" th:field="*{clientExpiration}"/>
-    <br/>
     <h3>Here’s how I’ll pay...</h3>
-    <label for="clientNumber">Credit Card #: </label>
-    <input type="text" th:field="*{clientNumber}"/>
+    <label for="ccNumber">CreditCard number: </label>
+        <input type="text" th:field="*{ccNumber}"/>
+        <span class="validationError"
+            th:if="${#fields.hasErrors('ccNumber')}"
+            th:errors="*{ccNumber}">CC Num Error</span>
     <br/>
-    <label for="clientCVV">Expiration: </label>
-    <input type="text" th:field="*{clientCVV}"/>
+    <label for="ccExpiration">CreditCard expiration: </label>
+    <input type="text" th:field="*{ccExpiration}"/>
+    <br/>
+    <label for="ccCVV">CreditCard CVV: </label>
+    <input type="text" th:field="*{ccCVV}"/>
     <br/>
     <input type="submit" value="Submit Order"/>
 </form>

@@ -2,8 +2,9 @@ package com.github.chelovekkrokant.foodordering.controller;
 
 import com.github.chelovekkrokant.foodordering.shawarma.Ingredient;
 import com.github.chelovekkrokant.foodordering.shawarma.Order;
-import com.github.chelovekkrokant.foodordering.shawarma.Packaging;
 import com.github.chelovekkrokant.foodordering.shawarma.Shawarma;
+import org.springframework.validation.Errors;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,10 +59,14 @@ public class DesignShawarmaController {
     }
 
     @PostMapping
-    public String processShawarma(Shawarma shawarma, @ModelAttribute Order order){
-        order.addShawarma(shawarma);
+    public String processShawarma(@Valid Shawarma shawarma,
+                                  @ModelAttribute Order order, Errors errors){
+        if (errors.hasErrors()) {
+            return "design";
+        }
+            order.addShawarma(shawarma);
         log.info("Processing shawarma: {}", shawarma);
-        
+
         return "redirect:/orders/current";
     }
 
