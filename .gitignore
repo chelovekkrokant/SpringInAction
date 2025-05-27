@@ -1,4 +1,4 @@
-HELP.md
+FoodOrdering/HELP.md
 target/
 
 ### STS ###
@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+FoodOrdering/.gitattributes
+FoodOrdering/.mvn
+FoodOrdering/mvnw
+FoodOrdering/mvnw.cmd
+Spring в действии 6 изд.pdf
