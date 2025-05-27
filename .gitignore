@@ -33,7 +33,7 @@ build/
 .vscode/
 
 FoodOrdering/.gitattributes
-FoodOrdering/.mvn
+FoodOrdering/.mvn/*
 FoodOrdering/mvnw
 FoodOrdering/mvnw.cmd
 Spring в действии 6 изд.pdf

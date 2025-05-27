@@ -8,6 +8,5 @@ import java.util.List;
 public class Shawarma {
     private String name;
     private List<Ingredient> ingredients;
-    private List<String> packagings;
 
 }

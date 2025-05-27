@@ -35,13 +35,6 @@ public class DesignShawarmaController {
                 new Ingredient("SOUR", "Sour cream", Ingredient.Type.SAUCE)
         );
 
-        List<Packaging> packagings = Arrays.asList(
-                new Packaging("GOCH", "Go, cheep", Packaging.Purpose.GO),
-                new Packaging("GOTH", "Go, thermo", Packaging.Purpose.GO),
-                new Packaging("INCH", "In, cheep", Packaging.Purpose.IN),
-                new Packaging("INTH", "In, thermo", Packaging.Purpose.IN)
-        );
-
         Ingredient.Type[] types = Ingredient.Type.values();
         for (Ingredient.Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
