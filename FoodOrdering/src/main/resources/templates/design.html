@@ -9,7 +9,7 @@
 
 <body>
 <h1>Design your shawarma!</h1>
-<img th:src="@{/images/shawarma.png}"/>
+<img th:src="@{/images/shawarma.jpg}"/>
 
 <form method="POST" th:object="${shawarma}">
     <div class="grid">
@@ -46,15 +46,6 @@
             </div>
         </div>
     </div>
-
-<!--    <div class="packaging" id="packs">-->
-<!--        <h3>Choose the packaging:</h3>-->
-<!--        <div th:each="packaging : ${packagings}">-->
-<!--            <input th:field="*{packagings}" type="checkbox"-->
-<!--                   th:value="${packaging.id}"/>-->
-<!--            <span th:text="${packaging.name}">PACKAGING</span><br/>-->
-<!--        </div>-->
-<!--    </div>-->
 
     <div>
         <h3>Name your shawarma:</h3>

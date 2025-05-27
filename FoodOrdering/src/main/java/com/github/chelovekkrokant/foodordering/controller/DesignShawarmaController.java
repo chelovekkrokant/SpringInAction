@@ -2,8 +2,9 @@ package com.github.chelovekkrokant.foodordering.controller;
 
 import com.github.chelovekkrokant.foodordering.shawarma.Ingredient;
 import com.github.chelovekkrokant.foodordering.shawarma.Order;
-import com.github.chelovekkrokant.foodordering.shawarma.Packaging;
 import com.github.chelovekkrokant.foodordering.shawarma.Shawarma;
+import org.springframework.validation.Errors;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,13 +36,6 @@ public class DesignShawarmaController {
                 new Ingredient("SOUR", "Sour cream", Ingredient.Type.SAUCE)
         );
 
-        List<Packaging> packagings = Arrays.asList(
-                new Packaging("GOCH", "Go, cheep", Packaging.Purpose.GO),
-                new Packaging("GOTH", "Go, thermo", Packaging.Purpose.GO),
-                new Packaging("INCH", "In, cheep", Packaging.Purpose.IN),
-                new Packaging("INTH", "In, thermo", Packaging.Purpose.IN)
-        );
-
         Ingredient.Type[] types = Ingredient.Type.values();
         for (Ingredient.Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
@@ -65,10 +59,14 @@ public class DesignShawarmaController {
     }
 
     @PostMapping
-    public String processShawarma(Shawarma shawarma, @ModelAttribute Order order){
-        order.addShawarma(shawarma);
+    public String processShawarma(@Valid Shawarma shawarma,
+                                  @ModelAttribute Order order, Errors errors){
+        if (errors.hasErrors()) {
+            return "design";
+        }
+            order.addShawarma(shawarma);
         log.info("Processing shawarma: {}", shawarma);
-        
+
         return "redirect:/orders/current";
     }
 
