@@ -19,8 +19,8 @@ public class OrderController {
     }
 
     @PostMapping
-    public String processOrder(@Valid Order order,
-                               SessionStatus sessionStatus, Errors errors) {
+    public String processOrder(@Valid Order order, Errors errors,
+                               SessionStatus sessionStatus) {
         if (errors.hasErrors()) {
             return "orderForm";
         }
