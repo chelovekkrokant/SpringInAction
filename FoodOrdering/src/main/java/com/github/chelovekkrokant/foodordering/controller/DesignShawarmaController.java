@@ -59,8 +59,8 @@ public class DesignShawarmaController {
     }
 
     @PostMapping
-    public String processShawarma(@Valid Shawarma shawarma,
-                                  @ModelAttribute Order order, Errors errors){
+    public String processShawarma(@Valid Shawarma shawarma, Errors errors,
+                                  @ModelAttribute Order order){
         if (errors.hasErrors()) {
             return "design";
         }
